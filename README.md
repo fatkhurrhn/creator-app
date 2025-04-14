@@ -1,12 +1,33 @@
-# React + Vite
+# bythur.vercel.app ✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sebuah web personal yang dibangun oleh [Fathur](https://bythur.vercel.app), berisi kumpulan konten kreatif seperti:
 
-Currently, two official plugins are available:
+- 📝 Quotes yang bisa dipakai dan dikontribusikan bersama
+- 🎞️ Mentahan video & foto
+- 🎓 Tutorial sederhana seputar dunia konten
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Website ini dibuat menggunakan:
 
-## Expanding the ESLint configuration
+- ⚛️ [React](https://react.dev/)
+- ⚡ [Vite](https://vitejs.dev/)
+- 💨 [Tailwind CSS](https://tailwindcss.com/)
+- 🔥 [Firebase](https://firebase.google.com/) (gratis edition)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌐 Live Demo
+Cek langsung websitenya di:  
+[**bythur.vercel.app**](https://bythur.vercel.app)
+
+## 📦 Fitur Utama
+
+- Quotes harian dan tematik
+- Upload/download mentahan (video, foto, aset desain)
+- Mini tutorial: dari desain, editing, sampai tips konten
+- Kontribusi terbuka dari siapa saja
+
+## 🚀 Cara Menjalankan Project Ini
+
+```bash
+git clone https://github.com/username/bythur.git
+cd bythur
+npm install
+npm run dev
