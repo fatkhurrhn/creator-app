@@ -4,11 +4,11 @@ const BottomNavbar = () => {
   const location = useLocation();
   
   const navItems = [
-    { path: '/', icon: 'ri-home-line', activeIcon: 'ri-home-fill', label: 'Home' },
+    { path: '/', icon: 'ri-home-3-line', activeIcon: 'ri-home-fill', label: 'Home' },
     { path: '/quotes', icon: 'ri-chat-quote-line', activeIcon: 'ri-chat-quote-fill', label: 'Quotes' },
-    { path: '/photos', icon: 'ri-image-line', activeIcon: 'ri-image-fill', label: 'Photos' },
-    { path: '/videos', icon: 'ri-play-circle-line', activeIcon: 'ri-play-circle-fill', label: 'Videos' },
-    { path: '/more', icon: 'ri-apps-line', activeIcon: 'ri-apps-fill', label: 'More' }
+    { path: '#', icon: 'ri-image-line', activeIcon: 'ri-image-fill', label: 'Photos' },
+    { path: '#', icon: 'ri-play-circle-line', activeIcon: 'ri-play-circle-fill', label: 'Videos' },
+    { path: '#', icon: 'ri-apps-line', activeIcon: 'ri-apps-fill', label: 'More' }
   ];
 
   return (

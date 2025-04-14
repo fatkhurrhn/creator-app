@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from './Pages/Quotes';
+import Home from './Pages/HomePage';
+import Quote from './Pages/Quotes';
 import AddQuote from './Pages/AddQuote';
 import Login from './Pages/Login';
 import Admin from './Pages/Admin';
@@ -9,6 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/quotes" element={<Quote />} />
       <Route path="/add" element={<AddQuote />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<Admin />} />

@@ -76,7 +76,7 @@ const Home = () => {
     <div className="container mx-auto px-4 py-6 sm:py-8 pb-20 sm:pb-8">
         <NavbarBottom/>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Kumpulan Quote</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">yuk share quote terbaikmu</h1>
         {/* Desktop Button (hidden on mobile) */}
         <button
           onClick={() => setShowModal(true)}
