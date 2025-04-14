@@ -3,9 +3,9 @@ import BottomNavbar from '../components/BottomNavbar';
 
 export default function MobileWebsiteClone() {
   return (
-    <div className="relative flex flex-col min-h-screen bg-white text-black overflow-hidden">
-      {/* Konten utama yang akan diposisikan di tengah */}
-      <div className="flex flex-col items-center justify-center flex-grow pt-4 px-4 pb-16">
+    <div className="relative h-screen bg-white text-black flex flex-col overflow-hidden">
+      {/* Container untuk konten utama */}
+      <div className="flex-1 flex flex-col items-center justify-center p-4 overflow-y-auto">
         {/* Header */}
         <div className="text-center mb-3">
           <h1 className="text-sm font-medium">Daily Motivation and Quotes</h1>
@@ -43,8 +43,8 @@ export default function MobileWebsiteClone() {
         </div>
       </div>
       
-      {/* Bottom Navbar (posisi fixed di bawah) */}
-      <div className="fixed bottom-0 w-full">
+      {/* Bottom Navbar */}
+      <div className="w-full">
         <BottomNavbar/>
       </div>
     </div>
