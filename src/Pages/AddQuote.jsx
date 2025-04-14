@@ -44,7 +44,7 @@ const AddQuote = () => {
         
         <div>
           <label htmlFor="author" className="block text-sm font-medium text-gray-700 mb-1">
-            Pembuat Quote
+            instagram
           </label>
           <input
             type="text"

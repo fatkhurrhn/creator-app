@@ -16,3 +16,4 @@ export const db = getFirestore(app);
 export const quotesCollection = collection(db, "quotes");
 export const auth = getAuth(app); // Export auth
 
+
