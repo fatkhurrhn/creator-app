@@ -3,15 +3,15 @@ import BottomNavbar from '../components/BottomNavbar';
 
 export default function MobileWebsiteClone() {
   return (
-    <div className="relative h-screen bg-white text-black flex flex-col overflow-hidden">
-      {/* Container untuk konten utama */}
-      <div className="flex-1 flex flex-col items-center justify-center p-4 overflow-y-auto">
+    <div className="flex flex-col items-center justify-between min-h-screen bg-white text-black overflow-hidden">
+      {/* Konten utama */}
+      <div className="flex flex-col items-center w-full pt-20 px-4">
         {/* Header */}
         <div className="text-center mb-3">
           <h1 className="text-sm font-medium">Daily Motivation and Quotes</h1>
         </div>
         
-        {/* Username */}
+        {/* Username with Verified Badge */}
         <div className="flex items-center justify-center mb-4">
           <h1 className="text-4xl font-bold">story.thur</h1>
         </div>
@@ -36,7 +36,7 @@ export default function MobileWebsiteClone() {
         </div>
         
         {/* CTA Button */}
-        <div className="w-full max-w-xs px-6">
+        <div className="w-full max-w-xs px-6 mb-4">
           <button className="w-full bg-gray-100 hover:bg-gray-200 text-black font-medium py-3 px-4 rounded-lg text-sm">
             Info Paid Promote ✨
           </button>
@@ -44,9 +44,7 @@ export default function MobileWebsiteClone() {
       </div>
       
       {/* Bottom Navbar */}
-      <div className="w-full">
-        <BottomNavbar/>
-      </div>
+      <BottomNavbar/>
     </div>
   );
 }
