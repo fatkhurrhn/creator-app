@@ -5,7 +5,7 @@ export default function MobileWebsiteClone() {
   return (
     <div className="flex flex-col items-center justify-between min-h-screen bg-white text-black overflow-hidden">
       {/* Konten utama */}
-      <div className="flex flex-col items-center w-full pt-20 px-4">
+      <div className="flex flex-col items-center w-full pt-4 px-4">
         {/* Header */}
         <div className="text-center mb-3">
           <h1 className="text-sm font-medium">Daily Motivation and Quotes</h1>
