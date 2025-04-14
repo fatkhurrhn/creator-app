@@ -63,7 +63,7 @@ const Admin = () => {
 
   const handleLogout = async () => {
     await signOut(auth);
-    navigate('/');
+    navigate('/quotes');
   };
 
   if (loading) return <div className="p-8">Loading...</div>;
