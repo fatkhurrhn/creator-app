@@ -4,8 +4,9 @@ import Quote from './Pages/Quotes';
 import AddQuote from './Pages/AddQuote';
 import Login from './Pages/Login';
 import Admin from './Pages/Admin';
-import Video from './Pages/MentahanVideo';
 import Tes from './Pages/Tes';
+import Photo from './Pages/Photos';
+import Video from './Pages/Videos';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/admin" element={<Admin />} />
       <Route path="/videos" element={<Video />} />
       <Route path="/tes" element={<Tes />} />
+      <Route path="/photos" element={<Photo />} />
     </Routes>
   );
 }

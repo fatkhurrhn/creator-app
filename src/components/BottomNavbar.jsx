@@ -6,8 +6,8 @@ const BottomNavbar = () => {
   const navItems = [
     { path: '/', icon: 'ri-home-3-line', activeIcon: 'ri-home-3-fill', label: 'Home' },
     { path: '/quotes', icon: 'ri-chat-quote-line', activeIcon: 'ri-chat-quote-fill', label: 'Quotes' },
-    { path: '#', icon: 'ri-image-line', activeIcon: 'ri-image-fill', label: 'Photos' },
-    { path: '#', icon: 'ri-play-circle-line', activeIcon: 'ri-play-circle-fill', label: 'Videos' },
+    { path: '/photos', icon: 'ri-image-line', activeIcon: 'ri-image-fill', label: 'Photos' },
+    { path: '/videos', icon: 'ri-play-circle-line', activeIcon: 'ri-play-circle-fill', label: 'Videos' },
     { path: '#', icon: 'ri-apps-line', activeIcon: 'ri-apps-fill', label: 'More' }
   ];
 
@@ -28,7 +28,7 @@ const BottomNavbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex-1 flex flex-col items-center justify-center p-1 transition-colors ${isActive ? 'text-blue-600' : 'text-gray-500 hover:text-gray-700'}`}
+                className={`flex-1 flex flex-col items-center justify-center p-1 transition-colors ${isActive ? 'text-black' : 'text-gray-500 hover:text-gray-700'}`}
               >
                 <i className={`text-lg ${isActive ? item.activeIcon : item.icon}`}></i>
                 <span className="text-[10px] leading-tight mt-0.5">{item.label}</span>

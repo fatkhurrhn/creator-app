@@ -20,7 +20,7 @@ export default function Tes() {
             
             <div className="w-full text-center lg:text-left">
               <p className="text-gray-700 mb-6 text-sm leading-relaxed">
-                Sederhana, tapi bermakna — itulah yang menjadi napas di setiap postingan{" "}
+                Sederhana, tapi bermakna eaaak — itulah yang menjadi napas di setiap postingan{" "}
                 <a 
                   href="https://instagram.com/story.thur" 
                   className="font-bold text-black hover:text-gray-600 transition"
