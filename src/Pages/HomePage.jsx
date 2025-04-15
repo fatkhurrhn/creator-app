@@ -44,7 +44,7 @@ export default function Tes() {
                 </div>
                 
                 <div className="text-center">
-                  <span className="block text-lg font-bold text-gray-800">24K+</span>
+                  <span className="block text-lg font-bold text-gray-800">25K+</span>
                   <span className="text-xs text-gray-600">Broadcast</span>
                 </div>
               </div>

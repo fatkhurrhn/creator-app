@@ -18,7 +18,7 @@ const BottomNavbar = () => {
       label: 'Quotes'
     },
     { 
-      path: '#', 
+      path: '/store', 
       icon: 'ri-store-line', 
       activeIcon: 'ri-image-fill', 
       label: 'Store'
@@ -34,7 +34,7 @@ const BottomNavbar = () => {
       icon: 'ri-apps-line', 
       activeIcon: 'ri-apps-fill', 
       label: 'More',
-      activePaths: ['/more', '/tes', '/paid-promote', '/store']
+      activePaths: ['/more', '/tes', '/paid-promote', '/xixi']
     }
   ];
 
