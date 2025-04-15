@@ -4,7 +4,7 @@ const BottomNavbar = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', icon: 'ri-home-3-line', activeIcon: 'ri-home-fill', label: 'Home' },
+    { path: '/', icon: 'ri-home-3-line', activeIcon: 'ri-home-3-fill', label: 'Home' },
     { path: '/quotes', icon: 'ri-chat-quote-line', activeIcon: 'ri-chat-quote-fill', label: 'Quotes' },
     { path: '#', icon: 'ri-image-line', activeIcon: 'ri-image-fill', label: 'Photos' },
     { path: '#', icon: 'ri-play-circle-line', activeIcon: 'ri-play-circle-fill', label: 'Videos' },
