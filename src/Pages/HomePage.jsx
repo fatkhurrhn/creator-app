@@ -27,9 +27,8 @@ export default function Tes() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  @story.thur
-                </a>{" "}
-                eaaakk. Lewat kutipan harian dan pesan reflektif, aku ingin menjadi teman virtual yang
+                  @story.thur.
+                </a>{" "} Lewat kutipan harian dan pesan reflektif, aku ingin menjadi teman virtual yang
                 mengingatkanmu akan makna-makna kecil dalam hidup ini, cihuuyyy.
               </p>
 
@@ -79,11 +78,11 @@ export default function Tes() {
 
             {/* Assets */}
             <a 
-              href="/more" 
+              href="/photos" 
               className="border border-gray-200 rounded-lg p-4 text-center hover:bg-gray-50 transition"
             >
               <i className="ri-image-line text-3xl text-gray-800 mb-2"></i>
-              <h3 className="font-medium text-gray-800">Assets</h3>
+              <h3 className="font-medium text-gray-800">Photos</h3>
             </a>
 
             {/* Quotes */}
