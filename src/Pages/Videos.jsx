@@ -8,12 +8,12 @@ import Sky2 from "../assets/mentahan-video/sky2.mp4";
 export default function Page() {
   const videoCategories = [
     { id: 1, src: DarkVibes, category: "Dark Vibes" },
-    { id: 2, src: Sky2, category: "Sky" },
+    { id: 2, src: Sky2, category: "Langit" },
     { id: 3, src: Landscape, category: "Natural" },
-    { id: 4, src: Sky, category: "Sky" },
+    { id: 4, src: Sky, category: "Langit" },
   ];
 
-  const categories = ["All", "Natural", "Dark Vibes", "Sky", "Miaww", "Nailong", "Aesthetic"];
+  const categories = ["All", "Dark Vibes", "Natural", "Langit"];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredVideos =
@@ -24,12 +24,32 @@ export default function Page() {
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800 pb-[90px]">
       <Navbar />
-      <section className="max-w-4xl mx-auto px-5 pt-8">
-        <div className="text-center flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-8 gap-4">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 pt-10">Ini assets yang aku pake</h1>
-          <p className='pb-1'>Ambil aja kalo kamu butuh 😉</p>
-          <hr className="border-gray-200" />
+      <section className="max-w-4xl mx-auto px-5 pt-5">
+        <div class="text-center flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-8 gap-4">
+          <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 pt-10">
+            Ini assets yang aku pake
+          </h1>
+
+          <p class="pb-1">Ambil aja kalo kamu butuh 😉</p>
+
+          <div class="flex justify-center gap-2 mt-3">
+            <a
+              href="/videos"
+              class="bg-black text-white px-7 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
+            >
+              Videos
+            </a>
+            <a
+              href="/photos"
+              class="bg-white text-gray-700 border border-gray-300 px-7 py-2 rounded-md text-sm font-medium hover:bg-gray-100 transition-colors"
+            >
+              Photos
+            </a>
+          </div>
+
+          <hr class="border-gray-200 mt-4" />
         </div>
+
 
         <div className="flex overflow-x-auto space-x-3 pt-2 pb-2 scrollbar-hide">
           {categories.map((category) => (

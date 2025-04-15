@@ -27,7 +27,7 @@ const BottomNavbar = () => {
       path: '/videos', 
       icon: 'ri-play-circle-line', 
       activeIcon: 'ri-play-circle-fill', 
-      label: 'Videos'
+      label: 'Mentahan'
     },
     { 
       path: '/more', 

@@ -111,7 +111,7 @@ const Home = () => {
 
       <button
         onClick={() => setShowModal(true)}
-        className="sm:hidden fixed bottom-16 right-6 bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all hover:shadow-xl"
+        className="sm:hidden fixed bottom-16 right-6 bg-black text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all hover:shadow-xl"
         aria-label="Tambah Quote"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -22,11 +22,29 @@ export default function PhotoGallery() {
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800 pb-[90px]">
       <Navbar />
-      <section className="max-w-4xl mx-auto px-5 pt-8">
-        <div className="text-center flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-8 gap-4">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 pt-10">ini assets yang aku pake</h1>
-          <p className='pb-1'>Ambil aja kalo kamu butuh 😉</p>
-          <hr className="border-gray-200" />
+      <section className="max-w-4xl mx-auto px-5 pt-5">
+      <div class="text-center flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-8 gap-4">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 pt-10">
+            Ini assets yang aku pake
+          </h1>
+
+          <p className="pb-1">Ambil aja kalo kamu butuh 😉</p>
+
+          <div className="flex justify-center gap-2 mt-3">
+            <a
+              href="/videos"
+              className="bg-white text-gray-700 border border-gray-300 px-7 py-2 rounded-md text-sm font-medium hover:bg-gray-100 transition-colors">
+              Videos
+            </a>
+            <a
+              href="/photos" className="bg-black text-white px-7 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
+
+            >
+              Photos
+            </a>
+          </div>
+
+          <hr className="border-gray-200 mt-4" />
         </div>
 
         <div className="flex overflow-x-auto space-x-3 pt-2 pb-2 scrollbar-hide">
