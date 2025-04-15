@@ -52,7 +52,7 @@ export default function Tes() {
 
               <div className="text-center lg:text-left">
                 <a 
-                  href="https://wa.me/6282285512813" 
+                  href="https://instagram.com/story.thur" 
                   className="inline-flex items-center bg-black hover:bg-gray-800 text-white text-sm font-medium py-2 px-4 rounded transition duration-300"
                 >
                   Let's go to my instagram
