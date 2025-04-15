@@ -5,6 +5,7 @@ import AddQuote from './Pages/AddQuote';
 import Login from './Pages/Login';
 import Admin from './Pages/Admin';
 import Video from './Pages/MentahanVideo';
+import Tes from './Pages/Tes';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/videos" element={<Video />} />
+      <Route path="/tes" element={<Tes />} />
     </Routes>
   );
 }
