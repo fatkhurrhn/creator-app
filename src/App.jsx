@@ -7,6 +7,8 @@ import Admin from './Pages/Admin';
 import Tes from './Pages/Tes';
 import Photo from './Pages/Photos';
 import Video from './Pages/Videos';
+import More from './Pages/More';
+import PaidPromote from './Pages/PaidPromote';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
       <Route path="/videos" element={<Video />} />
       <Route path="/tes" element={<Tes />} />
       <Route path="/photos" element={<Photo />} />
+      <Route path="/more" element={<More />} />
+      <Route path="/paid-promote" element={<PaidPromote />} />
     </Routes>
   );
 }

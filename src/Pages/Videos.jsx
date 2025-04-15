@@ -27,7 +27,7 @@ export default function Page() {
       <section className="max-w-4xl mx-auto px-5 pt-8">
         <div className="text-center flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-8 gap-4">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 pt-10">Ini assets yang aku pake</h1>
-          <p className='pb-1 text-gray-600'>Ambil aja kalo kamu butuh 😉</p>
+          <p className='pb-1'>Ambil aja kalo kamu butuh 😉</p>
           <hr className="border-gray-200" />
         </div>
 

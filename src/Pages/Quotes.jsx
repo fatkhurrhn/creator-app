@@ -64,7 +64,7 @@ const Home = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-pulse text-center py-10 text-gray-600">
+        <div className="animate-pulse text-center py-10 text-black">
           Memuat quotes...
         </div>
       </div>
