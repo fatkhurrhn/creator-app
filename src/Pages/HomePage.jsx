@@ -79,7 +79,7 @@ export default function Tes() {
 
             {/* Assets */}
             <a 
-              href="/assets" 
+              href="/more" 
               className="border border-gray-200 rounded-lg p-4 text-center hover:bg-gray-50 transition"
             >
               <i className="ri-image-line text-3xl text-gray-800 mb-2"></i>
@@ -97,7 +97,7 @@ export default function Tes() {
 
             {/* Broadcast */}
             <a 
-              href="/broadcast" 
+              href="/more" 
               className="border border-gray-200 rounded-lg p-4 text-center hover:bg-gray-50 transition"
             >
               <i className="ri-megaphone-line text-3xl text-gray-800 mb-2"></i>

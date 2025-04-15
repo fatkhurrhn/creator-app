@@ -18,7 +18,7 @@ const BottomNavbar = () => {
       label: 'Quotes'
     },
     { 
-      path: '/store', 
+      path: '#', 
       icon: 'ri-store-line', 
       activeIcon: 'ri-image-fill', 
       label: 'Store'
