@@ -57,10 +57,10 @@ const AddQuoteModal = ({ onClose, onQuoteAdded }) => {
           </div>
           <div className="flex rounded-lg shadow-sm">
             <input
-              placeholder=""
+              placeholder="uploader name"
               type="text"
               id="author"
-              className="flex-1 min-w-0 block w-full px-4 py-3 rounded-r-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+              className="flex-1 min-w-0 block w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
               required

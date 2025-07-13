@@ -79,30 +79,37 @@ const Quotes = () => {
     };
 
     return (
-      <div className="relative bg-white p-4 rounded-lg hover:bg-gray-50 transition-colors border-b border-gray-200 last:border-b-0">
-        <p className="text-gray-700 text-base mb-3 cursor-pointer" onClick={handleCopy}>
-          "{highlightText(quote, searchTerm)}"
-        </p>
-        <div className="flex justify-between items-end">
-          <p className="text-gray-600 text-sm font-medium">
-            — {highlightText(author, searchTerm)}
-          </p>
-          <div className="flex items-center">
-            {copied && (
-              <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded mr-2">
-                Disalin!
-              </span>
-            )}
-            <button
-              onClick={handleCopy}
-              className="text-gray-400 hover:text-gray-700"
-              title="Salin kutipan"
-            >
-              <i className="ri-clipboard-line"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+      <div
+  className="relative p-2 border-b border-gray-200 last:border-b-0
+             odd:bg-white even:bg-gray-50"
+>
+  <p
+    className="text-gray-700 text-base mb-0 text-justify cursor-pointer"
+    onClick={handleCopy}
+  >
+    "{highlightText(quote, searchTerm)}"
+  </p>
+  <div className="flex justify-between items-end mt-2">
+    <p className="text-gray-600 text-sm font-medium">
+      — {highlightText(author, searchTerm)}
+    </p>
+    <div className="flex items-center">
+      {copied && (
+        <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded mr-2">
+          Disalin!
+        </span>
+      )}
+      <button
+        onClick={handleCopy}
+        className="text-gray-400"
+        title="Salin kutipan"
+      >
+        <i className="ri-clipboard-line"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
     );
   };
 
