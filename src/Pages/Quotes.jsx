@@ -6,8 +6,10 @@ import NavbarBottom from '../components/BottomNavbar';
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
+  const [filteredQuotes, setFilteredQuotes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchQuotes = async () => {
@@ -19,6 +21,7 @@ const Quotes = () => {
           ...doc.data()
         }));
         setQuotes(quotesData);
+        setFilteredQuotes(quotesData);
       } catch (error) {
         console.error("Error fetching quotes: ", error);
       } finally {
@@ -29,6 +32,18 @@ const Quotes = () => {
     fetchQuotes();
   }, []);
 
+  useEffect(() => {
+    if (searchTerm.trim() === '') {
+      setFilteredQuotes(quotes);
+    } else {
+      const filtered = quotes.filter(quote => 
+        quote.text.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        quote.author.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredQuotes(filtered);
+    }
+  }, [searchTerm, quotes]);
+
   const handleQuoteAdded = () => {
     const fetchQuotes = async () => {
       const q = query(quotesCollection, orderBy('createdAt', 'desc'));
@@ -38,11 +53,23 @@ const Quotes = () => {
         ...doc.data()
       }));
       setQuotes(quotesData);
+      setFilteredQuotes(quotesData);
     };
     fetchQuotes();
   };
 
-  const QuoteCard = ({ quote, author }) => {
+  const highlightText = (text, highlight) => {
+    if (!highlight.trim()) return text;
+
+    const regex = new RegExp(`(${highlight})`, 'gi');
+    return text.split(regex).map((part, i) => 
+      part.toLowerCase() === highlight.toLowerCase() ? 
+      <mark key={i} className="bg-yellow-200">{part}</mark> : 
+      part
+    );
+  };
+
+  const QuoteCard = ({ quote, author, searchTerm }) => {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
@@ -53,11 +80,13 @@ const Quotes = () => {
 
     return (
       <div className="relative bg-white p-4 rounded-lg hover:bg-gray-50 transition-colors border-b border-gray-200 last:border-b-0">
-        <p className="text-gray-700 text-base mb-3 cursor-pointer text-justify" onClick={handleCopy}>
-          "{quote}"
+        <p className="text-gray-700 text-base mb-3 cursor-pointer" onClick={handleCopy}>
+          "{highlightText(quote, searchTerm)}"
         </p>
         <div className="flex justify-between items-end">
-          <p className="text-gray-600 text-sm font-medium">— {author}</p>
+          <p className="text-gray-600 text-sm font-medium">
+            — {highlightText(author, searchTerm)}
+          </p>
           <div className="flex items-center">
             {copied && (
               <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded mr-2">
@@ -94,17 +123,51 @@ const Quotes = () => {
         <div className="text-center flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-8 gap-4">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 pt-10">yuk share quote terbaikmu</h1>
           <p className='pb-1'>ambil aja kalo kamu butuh 😉</p>
+          
+          {/* Search Input */}
+          <div className="w-full mb-6">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Cari quote atau author..."
+                className="w-full p-3 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <div className="absolute left-3 top-3.5 text-gray-400">
+                <i className="ri-search-line"></i>
+              </div>
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600"
+                >
+                  <i className="ri-close-line"></i>
+                </button>
+              )}
+            </div>
+          </div>
+          
           <hr />
         </div>
 
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-          {quotes.map((quote) => (
-            <QuoteCard
-              key={quote.id}
-              quote={quote.text}
-              author={quote.author}
-            />
-          ))}
+          {filteredQuotes.length > 0 ? (
+            filteredQuotes.map((quote) => (
+              <QuoteCard
+                key={quote.id}
+                quote={quote.text}
+                author={quote.author}
+                searchTerm={searchTerm}
+              />
+            ))
+          ) : (
+            <div className="p-8 text-center text-gray-500">
+              {searchTerm ? 
+                "Quote tidak ditemukan" : 
+                "Belum ada quote yang tersedia"}
+            </div>
+          )}
         </div>
 
         <button
