@@ -4,7 +4,7 @@ import { getDocs, query, orderBy } from 'firebase/firestore';
 import AddQuoteModal from '../components/AddQuoteModal';
 import NavbarBottom from '../components/BottomNavbar';
 
-const Home = () => {
+const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -44,7 +44,7 @@ const Home = () => {
 
   const QuoteCard = ({ quote, author }) => {
     const [copied, setCopied] = useState(false);
-  
+
     const handleCopy = () => {
       navigator.clipboard.writeText(`${quote} — ${author}`);
       setCopied(true);
@@ -52,30 +52,27 @@ const Home = () => {
     };
 
     return (
-      <div className="relative bg-white p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
-        <div className="flex-grow flex items-center">
-          <p 
-            className="text-gray-700 text-base sm:text-lg cursor-pointer"
-            onClick={handleCopy}
-          >
-            "{quote}"
-            <span className="block text-gray-600 font-medium mt-2">— {author}</span>
-          </p>
-        </div>
-        
-
-        {copied && (
-          <div className="absolute bottom-4 right-9 text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded">
-            Disalin!
+      <div className="relative bg-white p-4 rounded-lg hover:bg-gray-50 transition-colors border-b border-gray-200 last:border-b-0">
+        <p className="text-gray-700 text-base mb-3 cursor-pointer text-justify" onClick={handleCopy}>
+          "{quote}"
+        </p>
+        <div className="flex justify-between items-end">
+          <p className="text-gray-600 text-sm font-medium">— {author}</p>
+          <div className="flex items-center">
+            {copied && (
+              <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded mr-2">
+                Disalin!
+              </span>
+            )}
+            <button
+              onClick={handleCopy}
+              className="text-gray-400 hover:text-gray-700"
+              title="Salin kutipan"
+            >
+              <i className="ri-clipboard-line"></i>
+            </button>
           </div>
-        )}
-        <button 
-  onClick={handleCopy}
-  className="absolute bottom-3 right-3 text-gray-400 hover:text-gray-700 text-lg"
-  title="Salin kutipan"
->
-  <i className="ri-clipboard-line"></i>
-</button>
+        </div>
       </div>
     );
   };
@@ -91,42 +88,44 @@ const Home = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-6 sm:py-8 pb-20 sm:pb-8">
-      <NavbarBottom />
-      <div className="text-center flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-8 gap-4">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 pt-10">yuk share quote terbaikmu</h1>
-        <p className='pb-1'>ambil aja kalo kamu butuh 😉</p>
-        <hr />
-      </div>
+    <div className="bg-gray-50 min-h-screen text-gray-800">
+      <div className="container max-w-4xl mx-auto px-4 pb-20">
+        <NavbarBottom />
+        <div className="text-center flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-8 gap-4">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 pt-10">yuk share quote terbaikmu</h1>
+          <p className='pb-1'>ambil aja kalo kamu butuh 😉</p>
+          <hr />
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {quotes.map((quote) => (
-          <QuoteCard
-            key={quote.id}
-            quote={quote.text}
-            author={quote.author}
+        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+          {quotes.map((quote) => (
+            <QuoteCard
+              key={quote.id}
+              quote={quote.text}
+              author={quote.author}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={() => setShowModal(true)}
+          className="sm:hidden fixed bottom-16 right-6 bg-black text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all hover:shadow-xl"
+          aria-label="Tambah Quote"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+          </svg>
+        </button>
+
+        {showModal && (
+          <AddQuoteModal
+            onClose={() => setShowModal(false)}
+            onQuoteAdded={handleQuoteAdded}
           />
-        ))}
+        )}
       </div>
-
-      <button
-        onClick={() => setShowModal(true)}
-        className="sm:hidden fixed bottom-16 right-6 bg-black text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all hover:shadow-xl"
-        aria-label="Tambah Quote"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-        </svg>
-      </button>
-
-      {showModal && (
-        <AddQuoteModal
-          onClose={() => setShowModal(false)}
-          onQuoteAdded={handleQuoteAdded}
-        />
-      )}
     </div>
   );
 };
 
-export default Home;
+export default Quotes;
