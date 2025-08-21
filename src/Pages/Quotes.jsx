@@ -36,7 +36,7 @@ const Quotes = () => {
     if (searchTerm.trim() === '') {
       setFilteredQuotes(quotes);
     } else {
-      const filtered = quotes.filter(quote => 
+      const filtered = quotes.filter(quote =>
         quote.text.toLowerCase().includes(searchTerm.toLowerCase()) ||
         quote.author.toLowerCase().includes(searchTerm.toLowerCase())
       );
@@ -62,10 +62,10 @@ const Quotes = () => {
     if (!highlight.trim()) return text;
 
     const regex = new RegExp(`(${highlight})`, 'gi');
-    return text.split(regex).map((part, i) => 
-      part.toLowerCase() === highlight.toLowerCase() ? 
-      <mark key={i} className="bg-yellow-200">{part}</mark> : 
-      part
+    return text.split(regex).map((part, i) =>
+      part.toLowerCase() === highlight.toLowerCase() ?
+        <mark key={i} className="bg-yellow-200">{part}</mark> :
+        part
     );
   };
 
@@ -80,35 +80,35 @@ const Quotes = () => {
 
     return (
       <div
-  className="relative p-2 border-b border-gray-200 last:border-b-0
+        className="relative p-2 border-b border-gray-200 last:border-b-0
              odd:bg-white even:bg-gray-50"
->
-  <p
-    className="text-gray-700 text-base mb-0 text-justify cursor-pointer"
-    onClick={handleCopy}
-  >
-    "{highlightText(quote, searchTerm)}"
-  </p>
-  <div className="flex justify-between items-end mt-2">
-    <p className="text-gray-600 text-sm font-medium">
-      — {highlightText(author, searchTerm)}
-    </p>
-    <div className="flex items-center">
-      {copied && (
-        <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded mr-2">
-          Disalin!
-        </span>
-      )}
-      <button
-        onClick={handleCopy}
-        className="text-gray-400"
-        title="Salin kutipan"
       >
-        <i className="ri-clipboard-line"></i>
-      </button>
-    </div>
-  </div>
-</div>
+        <p
+          className="text-gray-700 text-base text-justify cursor-pointer"
+          onClick={handleCopy}
+        >
+          "{highlightText(quote, searchTerm)}"
+        </p>
+        <div className="flex justify-between items-end mt-2">
+          <p className="text-gray-600 text-sm font-medium">
+            — {highlightText(author, searchTerm)}
+          </p>
+          <div className="flex items-center">
+            {copied && (
+              <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded mr-2">
+                Disalin!
+              </span>
+            )}
+            <button
+              onClick={handleCopy}
+              className="text-gray-400"
+              title="Salin kutipan"
+            >
+              <i className="ri-clipboard-line"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
     );
   };
@@ -130,7 +130,7 @@ const Quotes = () => {
         <div className="text-center flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-8 gap-4">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 pt-10">yuk share quote terbaikmu</h1>
           <p className='pb-1'>ambil aja kalo kamu butuh 😉</p>
-          
+
           {/* Search Input */}
           <div className="w-full mb-6">
             <div className="relative">
@@ -154,7 +154,7 @@ const Quotes = () => {
               )}
             </div>
           </div>
-          
+
           <hr />
         </div>
 
@@ -170,8 +170,8 @@ const Quotes = () => {
             ))
           ) : (
             <div className="p-8 text-center text-gray-500">
-              {searchTerm ? 
-                "Quote tidak ditemukan" : 
+              {searchTerm ?
+                "Quote tidak ditemukan" :
                 "Belum ada quote yang tersedia"}
             </div>
           )}

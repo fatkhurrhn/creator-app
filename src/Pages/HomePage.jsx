@@ -1,5 +1,4 @@
 import React from "react";
-import ppppImage from "../assets/img/pppp.png";
 import BottomNavbar from "../components/BottomNavbar";
 
 export default function Tes() {
@@ -12,7 +11,7 @@ export default function Tes() {
         <section className="mb-12 pt-10" id="about">
           <div className="flex flex-col lg:flex-row items-center gap-8">
           <img 
-                src={ppppImage} 
+                src="https://bythur.vercel.app/assets/pppp-BNdWaWeN.png" 
                 alt="StoryThur" 
                 className="w-100 h-auto lg:w-40 rounded-lg mx-auto lg:mx-0 "
                 style={{ maxHeight: '460px' }} // Sesuaikan nilai ini sesuai kebutuhan
@@ -20,7 +19,7 @@ export default function Tes() {
             
             <div className="w-full text-center lg:text-left">
               <p className="text-gray-700 mb-6 text-sm leading-relaxed">
-                Sederhana, tapi bermakna eaaak — itulah yang menjadi napas di setiap postingan{" "}
+                Sederhana, tapi bermakna eaaak — itulah yang menjadi napas di setiap postingassn{" "}
                 <a 
                   href="https://instagram.com/story.thur" 
                   className="font-bold text-black hover:text-gray-600 transition"
