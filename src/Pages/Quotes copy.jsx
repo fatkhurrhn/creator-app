@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { myQuotesCollection } from '../firebase';
-import { getDocs, query, orderBy, addDoc, serverTimestamp, doc, updateDoc, increment } from 'firebase/firestore';
+import { getDocs, query, orderBy, addDoc, serverTimestamp } from 'firebase/firestore';
 import NavWrapper from '../components/creator/NavNavigate';
 import Footer from '../components/creator/Footer';
 
@@ -90,7 +90,7 @@ const AddQuoteModal = ({ onClose, onQuoteAdded }) => {
                                 onChange={(e) => setCategory(e.target.value)}
                             >
                                 <option value="motivation">Motivasi</option>
-                                <option value="life">Reminder</option>
+                                <option value="life">Sindiran</option>
                                 <option value="love">Cinta</option>
                                 <option value="funny">Lucu</option>
                                 <option value="other">Lainnya</option>
@@ -122,33 +122,13 @@ const AddQuoteModal = ({ onClose, onQuoteAdded }) => {
 };
 
 // QuoteCard Component
-const QuoteCard = ({ quote, author, category, searchTerm, likes, onLike }) => {
+const QuoteCard = ({ quote, author, category, searchTerm }) => {
     const [copied, setCopied] = useState(false);
-    const [isLiking, setIsLiking] = useState(false);
-    const [localLikes, setLocalLikes] = useState(likes);
-    const [isLiked, setIsLiked] = useState(false);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(`${quote} — ${author}`);
         setCopied(true);
         setTimeout(() => setCopied(false), 1500);
-    };
-
-    const handleLike = async () => {
-        if (isLiking) return;
-
-        setIsLiking(true);
-        setIsLiked(true);
-        setLocalLikes(localLikes + 1);
-
-        try {
-            await onLike();
-        } catch {
-            setLocalLikes(localLikes);
-            setIsLiked(false);
-        } finally {
-            setIsLiking(false);
-        }
     };
 
     const getCategoryColor = (cat) => {
@@ -167,32 +147,19 @@ const QuoteCard = ({ quote, author, category, searchTerm, likes, onLike }) => {
             <div className="flex justify-between items-start mb-0">
                 <span className={`text-[10px] px-1 py-0 rounded-[3px] ${getCategoryColor(category)}`}>
                     {category === 'motivation' && 'Motivasi'}
-                    {category === 'life' && 'Reminder'}
+                    {category === 'life' && 'Sindiran'}
                     {category === 'love' && 'Cinta'}
-                    {category === 'wisdom' && 'Reminder'}
+                    {category === 'wisdom' && 'Sindiran'}
                     {category === 'funny' && 'Lucu'}
                     {category === 'other' && 'Lainnya'}
                 </span>
-                <div className="flex gap-2">
-                    <button
-                        onClick={handleLike}
-                        disabled={isLiking}
-                        className="flex items-center gap-1 group"
-                        title="Suka kutipan ini"
-                    >
-                        <span className={`${isLiked ? 'text-red-500' : 'text-gray-400'} group-hover:text-red-500`}>
-                            <i className={`ri-heart-${isLiked ? 'fill' : 'line'}`}></i>
-                        </span>
-                        <span className="text-xs text-gray-500">{localLikes}</span>
-                    </button>
-                    <button
-                        onClick={handleCopy}
-                        className="text-gray-400 hover:text-gray-600"
-                        title="Salin kutipan"
-                    >
-                        <i className="ri-clipboard-line"></i>
-                    </button>
-                </div>
+                <button
+                    onClick={handleCopy}
+                    className="text-gray-400 hover:text-gray-600"
+                    title="Salin kutipan"
+                >
+                    <i className="ri-clipboard-line"></i>
+                </button>
             </div>
 
             <p
@@ -281,24 +248,6 @@ const Quotes = () => {
         fetchQuotes();
     };
 
-    const handleLike = async (quoteId) => {
-        try {
-            // Update di Firestore
-            const quoteRef = doc(myQuotesCollection, quoteId);
-            await updateDoc(quoteRef, {
-                likes: increment(1)
-            });
-
-            // Update state lokal
-            setQuotes(quotes.map(quote =>
-                quote.id === quoteId ? { ...quote, likes: (quote.likes || 0) + 1 } : quote
-            ));
-        } catch (error) {
-            console.error("Error updating like: ", error);
-            throw error; // Dilempar ke QuoteCard untuk handling error
-        }
-    };
-
     // Get display message based on current filters
     const getDisplayMessage = () => {
         if (loading) return "Memuat quotes...";
@@ -346,7 +295,7 @@ const Quotes = () => {
                         >
                             <option value="all">Semua Kategori</option>
                             <option value="motivation">Motivasi</option>
-                            <option value="life">Reminder</option>
+                            <option value="wisdom">Sindiran</option>
                             <option value="love">Cinta</option>
                             <option value="funny">Lucu</option>
                             <option value="other">Lainnya</option>
@@ -384,8 +333,6 @@ const Quotes = () => {
                                     author={quote.author}
                                     category={quote.category}
                                     searchTerm={searchTerm}
-                                    likes={quote.likes || 0}
-                                    onLike={() => handleLike(quote.id)}
                                 />
                             ))
                         ) : (

@@ -1,19 +1,22 @@
+// src/firebase.js
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection } from "firebase/firestore";
-import { getAuth } from "firebase/auth"; // Tambahkan ini
+import { getFirestore, serverTimestamp, collection } from "firebase/firestore";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBJCuaD9XZ80_L8mfzZA9jPuW9cI25-J94",
-  authDomain: "quote-app-3e01f.firebaseapp.com",
-  projectId: "quote-app-3e01f",
-  storageBucket: "quote-app-3e01f.firebasestorage.app",
-  messagingSenderId: "1009969715759",
-  appId: "1:1009969715759:web:17f1a3b7ac69b9a14904da"
+  apiKey: "AIzaSyC_m0DjaSLa5tyrQChI7WNHRLQYd8Ydtjw",
+  authDomain: "my-porto-d422c.firebaseapp.com",
+  projectId: "my-porto-d422c",
+  storageBucket: "my-porto-d422c.appspot.com",
+  messagingSenderId: "1075491849941",
+  appId: "1:1075491849941:web:b527df694af5f499c0c45c",
+  measurementId: "G-KLZ7H8KJYH",
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-export const quotesCollection = collection(db, "quotes");
-export const auth = getAuth(app); // Export auth
+const db = getFirestore(app);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
-
+export const myQuotesCollection = collection(db, "my-quotes");
+export { db, auth, serverTimestamp, googleProvider };

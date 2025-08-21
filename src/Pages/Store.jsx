@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import BottomNavbar from "../../components/BottomNavbar";
+import NavCreator from "../components/creator/NavNavigate";
 
 const products = [
   {
     id: 1,
     name: "Netflix Premium",
-    image: "https://vokasi.unair.ac.id/wp-content/uploads/2023/11/Netflix-A-Legal-Platform-Revolutionizing-Entertainment-varlie-zahrani.jpg",
+    image: "https://res.cloudinary.com/dbssvz2pe/image/upload/v1752585527/assets-gallery/eul5c4ql0vra0cvu19aw2yh5e.png",
     price: "Rp 13.000",
     oldPrice: "Rp 15.000",
     category: "Streaming",
@@ -14,36 +14,37 @@ const products = [
   },
   {
     id: 2,
+    name: "Capcut Pro",
+    image: "https://cdnpro.eraspace.com/media/mageplaza/blog/post/t/i/tips_menggunakan_capcut-primary.png",
+    price: "Rp 6.000",
+    oldPrice: "Rp 10.000",
+    category: "Editing",
+    link: "/store/capcut",
+    bestSeller: true
+  },
+  {
+    id: 3,
     name: "Diamond ML",
     image: "https://garudavoucher.id/blog/wp-content/uploads/2024/08/dm-ml-1024x573.webp",
     price: "Rp 3.000",
     oldPrice: "Rp 5.000",
     category: "Top Up",
     link: "/store/diamond-ml",
-    bestSeller: true
+
   },
-  {
-    id: 3,
-    name: "Capcut Pro",
-    image: "https://cdnpro.eraspace.com/media/mageplaza/blog/post/t/i/tips_menggunakan_capcut-primary.png",
-    price: "Rp 6.000",
-    oldPrice: "Rp 10.000",
-    category: "Editing",
-    link: "/store/capcut"
-  },
-  {
-    id: 4,
-    name: "Pulsa",
-    image: "https://satmesin.com/wp-content/uploads/2023/04/pulsa.jpg",
-    price: "Rp 4.000",
-    oldPrice: "Rp 7.000",
-    category: "Top Up",
-    link: "/store/pulsa"
-  },
+  //   {
+  //     id: 4,
+  //     name: "Pulsa",
+  //     image: "https://satmesin.com/wp-content/uploads/2023/04/pulsa.jpg",
+  //     price: "Rp 4.000",
+  //     oldPrice: "Rp 7.000",
+  //     category: "Top Up",
+  //     link: "/store/pulsa"
+  //   },
   {
     id: 5,
     name: "Alight Motion",
-    image: "https://play-lh.googleusercontent.com/OU0BlP8C9-V7ECl2crma7B48nzDbK7liSLjn0j_fpTlyWG6qyEE-mw_KFZ9aOXF0a3w",
+    image: "https://res.cloudinary.com/dbssvz2pe/image/upload/v1752585646/assets-gallery/j3al50xor6gh8x6zrxfwpkabv.png",
     price: "Rp 7.000",
     oldPrice: "Rp 10.000",
     category: "Editing",
@@ -67,15 +68,15 @@ const products = [
     category: "Streaming",
     link: "/store/youtube"
   },
-  {
-    id: 8,
-    name: "Bstation",
-    image: "https://play-lh.googleusercontent.com/G9s84Cm1TDnKDX2P8nipS_s60cuCnYtjBRRLespF8nivjXmbV9tF1fY37clZhXMLaA=w240-h480-rw",
-    price: "Rp 8.000",
-    oldPrice: "Rp 13.000",
-    category: "Streaming",
-    link: "/store/bstation"
-  },
+  //   {
+  //     id: 8,
+  //     name: "Bstation",
+  //     image: "https://play-lh.googleusercontent.com/G9s84Cm1TDnKDX2P8nipS_s60cuCnYtjBRRLespF8nivjXmbV9tF1fY37clZhXMLaA=w240-h480-rw",
+  //     price: "Rp 8.000",
+  //     oldPrice: "Rp 13.000",
+  //     category: "Streaming",
+  //     link: "/store/bstation"
+  //   },
   {
     id: 9,
     name: "Viu",
@@ -89,7 +90,7 @@ const products = [
 
 const categories = ["All", "Streaming", "Top Up", "Design", "Editing", "Tools"];
 
-export default function StorePage() {
+export default function Store() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredProducts =
@@ -99,11 +100,14 @@ export default function StorePage() {
 
   return (
     <div className="font-sans bg-gray-50 min-h-screen">
-      <BottomNavbar/>
-      <section className="max-w-4xl mx-auto px-5 pt-20 pb-20">
-        <h2 className="text-2xl font-semibold text-center mb-5 text-gray-800">FaStore ID</h2>
+      <NavCreator />
+      <section className="max-w-4xl mx-auto px-4 pt-4 pb-10">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold mb-2 text-gray-900">StoreThur ID</h1>
+          <p className="text-gray-600">selling various premium apks at the cheapest price</p>
+        </div>
 
-        <div className="flex overflow-x-auto space-x-3 pt-2 pb-2 scrollbar-hide">
+        <div className="flex overflow-x-auto space-x-3 pt-0 pb-2 scrollbar-hide">
           {categories.map((category) => (
             <button
               key={category}
